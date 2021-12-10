@@ -1,0 +1,27 @@
+<body>
+<table *ngIf="showTable" border="1">
+    <tr>
+        <th>S NO</th>
+        <th>song Name</th>
+        <th>Artist Name</th>
+        <th>Duration</th>
+    </tr>
+    <tr *ngFor = "let m of songList;let i=index">
+        <th>{{i+1}}</th>
+        <th>{{m.songname}}</th>
+        <th>{{m.artistname}}</th>
+        <th>{{m.duration}}</th>
+        <th>
+            <input type="button" value="delete" (click) = "delete(i)">
+        </th>
+        <th>
+            <input type="button" value="update" (click) = "update(i)">
+        </th>
+    </tr>
+</table>
+<div *ngIf = "showUpdate">
+    Re type the duration of the song<input type="text" [(ngModel)] = "clickedSong.duration"/><br><br>
+    <input type="button" value="Confirm the update" (click)="updateConfirm()"/>
+</div>
+{{updateSuccess}}
+</body>
