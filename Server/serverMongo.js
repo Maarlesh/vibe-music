@@ -69,5 +69,19 @@ app.get("/delete",function(req,res){
         })
     })  
 })
+app.get("/viewartistname",function(req,res){
+	res.setHeader("Access-Control-Allow-Origin","*");
+    mongoClient.connect(dburl,function(err,db){
+        if (err) throw err;
+        var dbo = db.db("playlistDB")
+		var a = req.query.artistname;
+		var address = {artistname:a}
+        dbo.collection("song").find(address).toArray(function(err,result){
+            if (err) throw err;
+            res.json(result);
+            db.close();
+        })
+    })	
+})
 app.listen(5000)
 console.log("server is running on port 5000")

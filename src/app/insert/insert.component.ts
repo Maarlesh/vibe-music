@@ -14,7 +14,8 @@ export class InsertComponent implements OnInit {
     duration:""
   }
   successMessage = ""
-  constructor(private mydb:DbutilityService) { }
+  constructor(private mydb:DbutilityService) {
+   }
 
   ngOnInit(): void {
   }

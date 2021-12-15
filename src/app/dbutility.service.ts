@@ -13,6 +13,9 @@ export class DbutilityService {
   viewService(){
     return this.http.get("http://localhost:5000/view");
   }
+  viewArtistService(name:string){
+    return this.http.get("http://localhost:5000/viewartistname?artistname="+name);
+  }
   deleteService(name:string){
     return this.http.get("http://localhost:5000/delete?songname="+name);
   }
